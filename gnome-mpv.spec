@@ -13,7 +13,7 @@ BuildRequires:  autoconf
 BuildRequires:  automake
 BuildRequires:  pkgconfig(glib-2.0) >= 2.32
 BuildRequires:  pkgconfig(gtk+-3.0) >= 3.10
-BuildRequires:  pkgconfig(mpv)
+BuildRequires:  libmpv-devel
 BuildRequires:  python2-devel
 # check
 BuildRequires:  /usr/bin/desktop-file-validate
