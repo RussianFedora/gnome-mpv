@@ -1,0 +1,5 @@
+Название:	        A simple GTK+ frontend for mpv
+Мейнтейнер:	        Maxim Orlov
+Репозиторий:	        free
+Почему не в апстриме:	из-за отсуствия libmpv
+Комментарий:	        ---
