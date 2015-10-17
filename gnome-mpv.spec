@@ -1,12 +1,12 @@
 Name:           gnome-mpv
 Version:        0.5
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        A simple GTK+ frontend for mpv
 
 License:        GPLv3+
 URL:            https://github.com/gnome-mpv/gnome-mpv
-Source0:        https://github.com/gnome-mpv/%{name}/archive/v%{version}.tar.gz
-
+Source0:        https://github.com/%{name}/%{name}/archive/v%{version}.tar.gz
+# main deps
 BuildRequires:  gcc
 BuildRequires:  intltool
 BuildRequires:  autoconf
@@ -17,11 +17,11 @@ BuildRequires:  libmpv-devel
 BuildRequires:  python2-devel
 # check
 BuildRequires:  /usr/bin/desktop-file-validate
+# for video-sharing websites playback
 Requires:       youtube-dl
-Requires:       mpv
 
 %description
-GNOME MPV interacts with mpv via the client API exported by libmpv, 
+GNOME MPV interacts with mpv via the client API exported by libmpv,
 allowing access to mpv's powerful playback capabilities.
 
 %prep
@@ -36,7 +36,7 @@ intltoolize -c --automake
 %install
 %make_install
 
-%find_lang %{name}
+%find_lang %{name} --with-gnome
 
 %check
 desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
@@ -66,5 +66,9 @@ fi
 %{_datadir}/icons/hicolor/*/apps/%{name}.svg
 
 %changelog
-* Mon Aug 17 2015 Maxim Orlov <murmansksity@gmai.com> - 0.5-1.R
+* Sat Oct 17 2015 Maxim Orlov <murmansksity@gmail.com> - 0.5-2.R
+- Remove requires mpv
+- Minor spec cleanup
+
+* Mon Aug 17 2015 Maxim Orlov <murmansksity@gmail.com> - 0.5-1.R
 - Initial package.
