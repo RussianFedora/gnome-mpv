@@ -1,6 +1,6 @@
 Name:           gnome-mpv
-Version:        0.5
-Release:        2%{?dist}
+Version:        0.6
+Release:        1%{?dist}
 Summary:        A simple GTK+ frontend for mpv
 
 License:        GPLv3+
@@ -10,9 +10,10 @@ Source0:        https://github.com/%{name}/%{name}/archive/v%{version}.tar.gz
 BuildRequires:  gcc
 BuildRequires:  intltool
 BuildRequires:  autoconf
+BuildRequires:  autoconf-archive
 BuildRequires:  automake
-BuildRequires:  pkgconfig(glib-2.0) >= 2.32
-BuildRequires:  pkgconfig(gtk+-3.0) >= 3.10
+BuildRequires:  pkgconfig(glib-2.0) >= 2.40
+BuildRequires:  pkgconfig(gtk+-3.0) >= 3.16
 BuildRequires:  libmpv-devel
 BuildRequires:  python2-devel
 # check
@@ -28,10 +29,10 @@ allowing access to mpv's powerful playback capabilities.
 %setup -q
 
 %build
-autoreconf -sfi
-intltoolize -c --automake
+NOCONFIGURE=1 ./autogen.sh
+
 %configure
-%make_build
+%make_build V=1
 
 %install
 %make_install
@@ -66,6 +67,13 @@ fi
 %{_datadir}/icons/hicolor/*/apps/%{name}.svg
 
 %changelog
+* Mon Oct 26 2015 Maxim Orlov <murmansksity@gmail.com> - 0.6-1.R
+- Update to 0.6
+- Add autoconf-archive BR
+- Add NOCONFIGURE=1 ./autogen.sh
+- Add V=1
+- Remove autoreconf, intltoolize calls
+
 * Sat Oct 17 2015 Maxim Orlov <murmansksity@gmail.com> - 0.5-2.R
 - Remove requires mpv
 - Minor spec cleanup
