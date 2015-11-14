@@ -1,5 +1,5 @@
-Название:	        A simple GTK+ frontend for mpv
+Название:	        gnome-mpv
 Мейнтейнер:	        Maxim Orlov
 Репозиторий:	        free
 Почему не в апстриме:	из-за отсуствия libmpv
-Комментарий:	        ---
+Комментарий:	        A simple GTK+ frontend for mpv

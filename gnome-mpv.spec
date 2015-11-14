@@ -1,6 +1,6 @@
 Name:           gnome-mpv
 Version:        0.6
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        A simple GTK+ frontend for mpv
 
 License:        GPLv3+
@@ -18,8 +18,6 @@ BuildRequires:  python2-devel
 BuildRequires:  /usr/bin/desktop-file-validate
 # for video-sharing websites playback
 Requires:       youtube-dl
-# shared library libmpv
-Requires:       mpv-libs
 
 %description
 GNOME MPV interacts with mpv via the client API exported by libmpv,
@@ -67,6 +65,9 @@ fi
 %{_datadir}/icons/hicolor/*/apps/%{name}.svg
 
 %changelog
+* Sat Nov 14 2015 Maxim Orlov <murmansksity@gmail.com> - 0.6-3.R
+- Fix E: explicit-lib-dependency mpv-libs (rpmlint)
+
 * Fri Nov 13 2015 Maxim Orlov <murmansksity@gmail.com> - 0.6-2.R
 - Update dependencies (mpv-libs-devel, mpv-libs)
 
