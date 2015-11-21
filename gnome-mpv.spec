@@ -1,3 +1,6 @@
+%global glib2_version 2.40
+%global gtk3_version 3.16
+
 Name:           gnome-mpv
 Version:        0.6
 Release:        3%{?dist}
@@ -11,11 +14,9 @@ BuildRequires:  automake
 BuildRequires:  autoconf-archive
 BuildRequires:  intltool
 BuildRequires:  mpv-libs-devel
-BuildRequires:  pkgconfig(glib-2.0) >= 2.40
-BuildRequires:  pkgconfig(gtk+-3.0) >= 3.16
-BuildRequires:  python2-devel
-# check
-BuildRequires:  /usr/bin/desktop-file-validate
+BuildRequires:  pkgconfig(glib-2.0) >= %{glib2_version}
+BuildRequires:  pkgconfig(gtk+-3.0) >= %{gtk3_version}
+BuildRequires:  desktop-file-utils
 # for video-sharing websites playback
 Requires:       youtube-dl
 
