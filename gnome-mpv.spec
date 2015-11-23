@@ -10,13 +10,14 @@ License:        GPLv3+
 URL:            https://github.com/gnome-mpv/gnome-mpv
 Source0:        https://github.com/%{name}/%{name}/archive/v%{version}.tar.gz
 # main deps
-BuildRequires:  automake
 BuildRequires:  autoconf-archive
-BuildRequires:  intltool
-BuildRequires:  mpv-libs-devel
+BuildRequires:  automake
+BuildRequires:  desktop-file-utils
 BuildRequires:  pkgconfig(glib-2.0) >= %{glib2_version}
 BuildRequires:  pkgconfig(gtk+-3.0) >= %{gtk3_version}
-BuildRequires:  desktop-file-utils
+BuildRequires:  pkgconfig(epoxy)
+BuildRequires:  intltool
+BuildRequires:  mpv-libs-devel
 # for video-sharing websites playback
 Requires:       youtube-dl
 
@@ -76,7 +77,7 @@ fi
 - Update to 0.6
 - Add autoconf-archive BR
 - Add NOCONFIGURE=1 ./autogen.sh
-- Add V=1
+- Add V=1 (Make the build verbose)
 - Remove autoreconf, intltoolize calls
 
 * Sat Oct 17 2015 Maxim Orlov <murmansksity@gmail.com> - 0.5-2.R
