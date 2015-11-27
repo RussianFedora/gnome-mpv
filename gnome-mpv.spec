@@ -16,8 +16,8 @@ BuildRequires:  desktop-file-utils
 BuildRequires:  pkgconfig(glib-2.0) >= %{glib2_version}
 BuildRequires:  pkgconfig(gtk+-3.0) >= %{gtk3_version}
 BuildRequires:  pkgconfig(epoxy)
+BuildRequires:  pkgconfig(mpv)
 BuildRequires:  intltool
-BuildRequires:  mpv-libs-devel
 # for video-sharing websites playback
 Requires:       youtube-dl
 
