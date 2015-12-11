@@ -65,6 +65,7 @@ fi
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/glib-2.0/schemas/*.gschema.xml
 %{_datadir}/icons/hicolor/*/apps/%{name}.svg
+%{_datadir}/icons/hicolor/*/apps/%{name}-symbolic.svg
 
 %changelog
 * Sat Nov 14 2015 Maxim Orlov <murmansksity@gmail.com> - 0.6-3.R
