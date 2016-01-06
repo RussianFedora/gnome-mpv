@@ -9,7 +9,7 @@ Summary:        A simple GTK+ frontend for mpv
 License:        GPLv3+
 URL:            https://github.com/gnome-mpv/gnome-mpv
 Source0:        https://github.com/%{name}/%{name}/archive/v%{version}.tar.gz
-# main deps
+# main dependencies
 BuildRequires:  autoconf-archive
 BuildRequires:  automake
 BuildRequires:  desktop-file-utils
@@ -26,7 +26,7 @@ GNOME MPV interacts with mpv via the client API exported by libmpv,
 allowing access to mpv's powerful playback capabilities.
 
 %prep
-%setup -q
+%autosetup
 
 %build
 NOCONFIGURE=1 ./autogen.sh
