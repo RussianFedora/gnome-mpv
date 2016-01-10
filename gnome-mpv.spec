@@ -12,7 +12,8 @@ Source0:        https://github.com/%{name}/%{name}/archive/v%{version}.tar.gz
 # main dependencies
 BuildRequires:  autoconf-archive
 BuildRequires:  automake
-BuildRequires:  desktop-file-utils
+BuildRequires:  /usr/bin/appstream-util
+BuildRequires:  /usr/bin/desktop-file-validate
 BuildRequires:  pkgconfig(glib-2.0) >= %{glib2_version}
 BuildRequires:  pkgconfig(gtk+-3.0) >= %{gtk3_version}
 BuildRequires:  pkgconfig(epoxy)
@@ -40,6 +41,7 @@ NOCONFIGURE=1 ./autogen.sh
 %find_lang %{name} --with-gnome
 
 %check
+appstream-util validate-relax --nonet %{buildroot}%{_datadir}/appdata/%{name}.appdata.xml
 desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 %post
@@ -59,9 +61,10 @@ fi
 /usr/bin/glib-compile-schemas %{_datadir}/glib-2.0/schemas &> /dev/null || :
 
 %files -f %{name}.lang
-%doc README.md
+%doc README*
 %license COPYING
 %{_bindir}/%{name}
+%{_datadir}/appdata/%{name}.appdata.xml
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/glib-2.0/schemas/*.gschema.xml
 %{_datadir}/icons/hicolor/*/apps/%{name}.svg
