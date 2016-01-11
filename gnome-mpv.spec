@@ -12,7 +12,7 @@ Source0:        https://github.com/%{name}/%{name}/archive/v%{version}.tar.gz
 # main dependencies
 BuildRequires:  autoconf-archive
 BuildRequires:  automake
-BuildRequires:  /usr/bin/appstream-util
+BuildRequires:  pkgconfig(appstream-glib)
 BuildRequires:  /usr/bin/desktop-file-validate
 BuildRequires:  pkgconfig(glib-2.0) >= %{glib2_version}
 BuildRequires:  pkgconfig(gtk+-3.0) >= %{gtk3_version}
