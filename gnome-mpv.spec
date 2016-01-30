@@ -2,8 +2,8 @@
 %global gtk3_version 3.16
 
 Name:           gnome-mpv
-Version:        0.6
-Release:        3%{?dist}
+Version:        0.7
+Release:        1%{?dist}
 Summary:        A simple GTK+ frontend for mpv
 
 License:        GPLv3+
@@ -17,7 +17,7 @@ BuildRequires:  /usr/bin/desktop-file-validate
 BuildRequires:  pkgconfig(glib-2.0) >= %{glib2_version}
 BuildRequires:  pkgconfig(gtk+-3.0) >= %{gtk3_version}
 BuildRequires:  pkgconfig(epoxy)
-BuildRequires:  pkgconfig(mpv)
+BuildRequires:  pkgconfig(mpv) >= 1:0.15.0
 BuildRequires:  intltool
 # for video-sharing websites playback
 Requires:       youtube-dl
@@ -61,7 +61,7 @@ fi
 /usr/bin/glib-compile-schemas %{_datadir}/glib-2.0/schemas &> /dev/null || :
 
 %files -f %{name}.lang
-%doc README*
+%doc README.md
 %license COPYING
 %{_bindir}/%{name}
 %{_datadir}/appdata/%{name}.appdata.xml
@@ -71,6 +71,11 @@ fi
 %{_datadir}/icons/hicolor/*/apps/%{name}-symbolic.svg
 
 %changelog
+* Sat Jan 30 2016 Maxim Orlov <murmansksity@gmail.com> - 0.7-1.R
+- Update to 0.7
+- Add AppData
+- Add symbolic icon
+
 * Sat Nov 14 2015 Maxim Orlov <murmansksity@gmail.com> - 0.6-3.R
 - Fix E: explicit-lib-dependency mpv-libs (rpmlint)
 
