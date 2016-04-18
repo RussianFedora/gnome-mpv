@@ -1,8 +1,9 @@
 %global glib2_version 2.40
-%global gtk3_version 3.16
+%global gtk3_version 3.20
+%global mpv_version 1.20
 
 Name:           gnome-mpv
-Version:        0.7
+Version:        0.8
 Release:        1%{?dist}
 Summary:        A simple GTK+ frontend for mpv
 
@@ -17,7 +18,7 @@ BuildRequires:  /usr/bin/desktop-file-validate
 BuildRequires:  pkgconfig(glib-2.0) >= %{glib2_version}
 BuildRequires:  pkgconfig(gtk+-3.0) >= %{gtk3_version}
 BuildRequires:  pkgconfig(epoxy)
-BuildRequires:  pkgconfig(mpv)
+BuildRequires:  pkgconfig(mpv) >= %{mpv_version}
 BuildRequires:  intltool
 # for video-sharing websites playback
 Requires:       youtube-dl
@@ -38,11 +39,11 @@ NOCONFIGURE=1 ./autogen.sh
 %install
 %make_install
 
-%find_lang %{name} --with-gnome
+%find_lang %{name}
 
 %check
-appstream-util validate-relax --nonet %{buildroot}%{_datadir}/appdata/%{name}.appdata.xml
-desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
+appstream-util validate-relax --nonet %{buildroot}%{_datadir}/appdata/io.github.GnomeMpv.appdata.xml
+desktop-file-validate %{buildroot}%{_datadir}/applications/io.github.GnomeMpv.desktop
 
 %post
 /usr/bin/update-desktop-database &> /dev/null || :
@@ -61,16 +62,25 @@ fi
 /usr/bin/glib-compile-schemas %{_datadir}/glib-2.0/schemas &> /dev/null || :
 
 %files -f %{name}.lang
-%doc README.md
+%doc AUTHORS README.md
 %license COPYING
 %{_bindir}/%{name}
-%{_datadir}/appdata/%{name}.appdata.xml
-%{_datadir}/applications/%{name}.desktop
-%{_datadir}/glib-2.0/schemas/*.gschema.xml
+%{_datadir}/appdata/io.github.GnomeMpv.appdata.xml
+%{_datadir}/applications/io.github.GnomeMpv.desktop
+%{_datadir}/glib-2.0/schemas/io.github.GnomeMpv.gschema.xml
+# The old GSchema is left installed for settings migration.
+%{_datadir}/glib-2.0/schemas/org.gnome-mpv.gschema.xml
 %{_datadir}/icons/hicolor/*/apps/%{name}.svg
 %{_datadir}/icons/hicolor/*/apps/%{name}-symbolic.svg
 
 %changelog
+* Mon Apr 18 2016 Maxim Orlov <murmansksity@gmail.com> - 0.8-1.R
+- Update to 0.8
+- Add AUTHORS %%doc
+- Add mpv dep version
+- Update gtk3 dep version
+- Change app ID to io.github.GnomeMpv
+
 * Sat Jan 30 2016 Maxim Orlov <murmansksity@gmail.com> - 0.7-1.R
 - Update to 0.7
 - Add AppData
