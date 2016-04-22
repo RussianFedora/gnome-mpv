@@ -20,9 +20,9 @@ BuildRequires:  pkgconfig(gtk+-3.0) >= %{gtk3_version}
 BuildRequires:  pkgconfig(epoxy)
 BuildRequires:  pkgconfig(mpv) >= %{mpv_version}
 BuildRequires:  intltool
-# for video-sharing websites playback
-Requires:       youtube-dl
+# youtube-dl for video sharing websites playback
 # supported sites https://rg3.github.io/youtube-dl/supportedsites.html
+Requires:       youtube-dl
 
 %description
 GNOME MPV interacts with mpv via the client API exported by libmpv,
