@@ -3,13 +3,13 @@
 %global mpv_version 1.20
 
 Name:           gnome-mpv
-Version:        0.9
+Version:        0.10
 Release:        1%{?dist}
 Summary:        A simple GTK+ frontend for mpv
 
 License:        GPLv3+
 URL:            https://github.com/gnome-mpv/gnome-mpv
-Source0:        https://github.com/%{name}/%{name}/releases/download/v%{version}/%{name}-%{version}.tar.xz
+Source0:        %{url}/releases/download/v%{version}/%{name}-%{version}.tar.xz
 # Main dependencies
 BuildRequires:  gcc
 BuildRequires:  desktop-file-utils
@@ -20,6 +20,7 @@ BuildRequires:  libappstream-glib
 BuildRequires:  pkgconfig(epoxy)
 BuildRequires:  pkgconfig(mpv) >= %{mpv_version}
 Requires:       youtube-dl >= 2016.03.06
+Requires:       hicolor-icon-theme
 
 %description
 GNOME MPV interacts with mpv via the client API exported by libmpv,
@@ -70,6 +71,10 @@ fi
 %{_datadir}/icons/hicolor/*/apps/%{name}-symbolic.svg
 
 %changelog
+* Fri Jul 29 2016 Maxim Orlov <murmansksity@gmail.com> - 0.10-1.R
+- Update to 0.10
+- Add missing Requires: hicolor-icon-theme
+
 * Wed May 18 2016 Maxim Orlov <murmansksity@gmail.com> - 0.9-1.R
 - Update to 0.9
 - Use a new SourceURL
