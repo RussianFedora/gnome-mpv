@@ -10,7 +10,7 @@ Summary:        A simple GTK+ frontend for mpv
 License:        GPLv3+
 URL:            https://github.com/gnome-mpv/gnome-mpv
 Source0:        %{url}/releases/download/v%{version}/%{name}-%{version}.tar.xz
-# Main dependencies
+
 BuildRequires:  gcc
 BuildRequires:  desktop-file-utils
 BuildRequires:  pkgconfig(glib-2.0) >= %{glib2_version}
@@ -67,11 +67,10 @@ fi
 %{_datadir}/glib-2.0/schemas/io.github.GnomeMpv.gschema.xml
 # The old GSchema is left installed for settings migration.
 %{_datadir}/glib-2.0/schemas/org.gnome-mpv.gschema.xml
-%{_datadir}/icons/hicolor/*/apps/%{name}.svg
-%{_datadir}/icons/hicolor/*/apps/%{name}-symbolic.svg
+%{_datadir}/icons/hicolor/*/apps/%{name}*.svg
 
 %changelog
-* Fri Jul 29 2016 Maxim Orlov <murmansksity@gmail.com> - 0.10-1.R
+* Fri Jul 29 2016 Maxim Orlov <murmansksity@gmail.com> - 0.10-1
 - Update to 0.10
 - Add missing Requires: hicolor-icon-theme
 
